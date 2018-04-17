@@ -37,7 +37,7 @@ class PostRepository
     // Grab all posts from the database and return an array of Post objects.
     public function findAll() {
         $db_results = $this->app['db']->fetchAll('SELECT * FROM `posts`');
-        if ($db_results === false) {
+        if ($db_results === [] || $db_results === false) {
             throw new PostNotFoundException('No posts were found in the database!');
         }
 
